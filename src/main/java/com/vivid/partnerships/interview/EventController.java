@@ -25,19 +25,26 @@ public class EventController {
         return events;
     }
 
-    @RequestMapping(value = "/events", method = RequestMethod.POST)
+    @PostMapping(value = "/events")
     public void addEvent(@RequestBody Event event) {
-        // TODO svc
+        eventService.addEvent(event);
     }
 
-    @RequestMapping("/events/{id}")
+    @GetMapping("/events/{id}")
     public Event getEvent(@PathVariable Integer id) {
-        return null; // TODO svc
+        return eventService.getEventById(id);
     }
 
-
+    @PutMapping(value = "/events/{id}")
     public void updateEvent(@PathVariable Integer id, @RequestBody Event event) {
-        // TODO svc
+        event.setId(id);
+        eventService.updateEvent(event);
+    }
+
+    @GetMapping("/venues")
+    public List<Venue> getVenues() {
+        List<Venue> venues = eventService.getVenues();
+        return venues;
     }
 
 }
