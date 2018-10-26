@@ -7,6 +7,9 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 public class EventRowMapper implements RowMapper<Event> {
+
+    VenueRowMapper venueRowMapper = new VenueRowMapper();
+
     @Nullable
     @Override
     public Event mapRow(ResultSet resultSet, int rowNum) throws SQLException {
@@ -14,7 +17,6 @@ public class EventRowMapper implements RowMapper<Event> {
         event.id = resultSet.getInt("id");
         event.date = resultSet.getDate("date");
         event.name = resultSet.getString("name");
-        event.venue = null;
         return event;
     }
 }

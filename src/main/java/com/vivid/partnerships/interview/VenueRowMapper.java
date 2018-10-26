@@ -18,4 +18,5 @@ public class VenueRowMapper implements RowMapper<Venue> {
         venue.state = resultSet.getString("state");
         return venue;
     }
+
 }

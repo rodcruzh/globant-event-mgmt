@@ -1,11 +1,25 @@
 package com.vivid.partnerships.interview;
 
+import javax.persistence.*;
 import java.util.Date;
 
+@Entity
+@Table(name = "events")
 public class Event {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column
     public Integer id;
+
+    @Column
     public String name;
+
+    @Column
     public Date date;
+
+    @JoinColumn(name = "id_venue", referencedColumnName = "id")
+    @ManyToOne
     public Venue venue;
 
     public Integer getId() {
@@ -39,4 +53,5 @@ public class Event {
     public void setVenue(Venue venue) {
         this.venue = venue;
     }
+
 }

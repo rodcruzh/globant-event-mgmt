@@ -1,9 +1,23 @@
 package com.vivid.partnerships.interview;
 
+import javax.persistence.*;
+
+@Entity
+@Table(name = "venue")
 public class Venue {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column
     public Integer id;
+
+    @Column
     public String name;
+
+    @Column
     public String city;
+
+    @Column
     public String state;
 
     public Integer getId() {

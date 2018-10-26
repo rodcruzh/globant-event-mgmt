@@ -12,7 +12,11 @@ import java.util.List;
 public class EventController {
     private static final Logger LOGGER = LoggerFactory.getLogger(EventController.class);
 
+    @Autowired
     private final EventService eventService;
+
+    @Autowired
+    private VenueService venueService;
 
     @Autowired
     public EventController(final EventService eventService) {
@@ -44,7 +48,7 @@ public class EventController {
 
     @GetMapping("/venues")
     public List<Venue> getVenues() {
-        List<Venue> venues = eventService.getVenues();
+        List<Venue> venues = venueService.getVenues();
         return venues;
     }
 
