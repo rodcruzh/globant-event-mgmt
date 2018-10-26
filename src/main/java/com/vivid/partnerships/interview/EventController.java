@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
+@CrossOrigin(origins = { "http://localhost:4200", "http://localhost" })
 public class EventController {
     private static final Logger LOGGER = LoggerFactory.getLogger(EventController.class);
 
