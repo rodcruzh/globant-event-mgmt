@@ -18,4 +18,8 @@ public class VenueService {
         return venues;
     }
 
+    public Venue addVenue(Venue venue) {
+        return venueRepository.save(venue);
+    }
+
 }

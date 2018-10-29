@@ -31,8 +31,8 @@ public class EventController {
     }
 
     @PostMapping(value = "/events")
-    public void addEvent(@RequestBody Event event) {
-        eventService.addEvent(event);
+    public Event addEvent(@RequestBody Event event) {
+        return eventService.addEvent(event);
     }
 
     @GetMapping("/events/{id}")
@@ -46,10 +46,9 @@ public class EventController {
         eventService.updateEvent(event);
     }
 
-    @GetMapping("/venues")
-    public List<Venue> getVenues() {
-        List<Venue> venues = venueService.getVenues();
-        return venues;
+    @PostMapping(value = "/venue")
+    public Venue addVenue(@RequestBody Venue venue) {
+        return venueService.addVenue(venue);
     }
 
 }
